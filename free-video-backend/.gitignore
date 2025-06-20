@@ -1,0 +1,12 @@
+# deps
+node_modules/
+
+# ide
+.vscode/
+.idea/
+.zed/
+
+# lock file
+bun.lock
+package-lock.json
+
