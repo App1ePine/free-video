@@ -69,4 +69,4 @@ app.get('/api/searchvideo', async (c) => {
 	}
 })
 
-export default app
+export default { app, port: 30002 }
