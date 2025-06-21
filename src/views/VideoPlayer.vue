@@ -411,16 +411,14 @@ const goBack = () => {
 }
 
 .episodes-grid {
-	display: flex;
-	flex-wrap: wrap;
+	display: grid;
+	grid-template-columns: repeat(auto-fill, minmax(50px, 1fr));
 	gap: 6px;
 }
 
 .episodes-grid :deep(.el-button) {
-	flex: 0 0 48px;
-	width: 48px;
-	height: 32px;
-	padding: 0;
-	margin: 0;
+	width: 50px;
+	height: 28px;
+	margin-left: 2px;
 }
 </style>

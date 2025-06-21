@@ -510,13 +510,24 @@ onUnmounted(() => {
 .episodes-grid {
 	display: grid;
 	grid-template-columns: repeat(auto-fill, minmax(50px, 1fr));
-	gap: 8px;
+	gap: 6px;
+}
+
+.episodes-grid :deep(.el-button) {
+	width: 100%;
+	height: 28px;
+	margin-left: 6px;
 }
 
 .all-episodes {
 	display: grid;
 	grid-template-columns: repeat(auto-fill, minmax(80px, 1fr));
 	gap: 10px;
+}
+
+.all-episodes :deep(.el-button) {
+	width: 100%;
+	margin-left: 12px;
 }
 
 .support-card {
