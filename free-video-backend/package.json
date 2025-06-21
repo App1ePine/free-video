@@ -1,7 +1,7 @@
 {
 	"name": "free_backend",
 	"scripts": {
-		"dev": "bun run --hot src/index.ts",
+		"dev": "bun run --hot server.ts",
 		"build": "bun build ./server.ts --outdir=./dist --target bun",
 		"compile": "bun build ./server.ts --compile --outfile server",
 		"start": "bun run ./dist/server.js"

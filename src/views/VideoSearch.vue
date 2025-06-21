@@ -98,9 +98,15 @@
 				</el-card>
 			</div>
 
+			<!-- 加载中状态 -->
+			<div v-if="isSearching" class="loading-container">
+				<el-icon class="loading-icon is-loading" size="48"><Loading /></el-icon>
+				<p>正在搜索中...</p>
+			</div>
+
 			<!-- 无搜索结果时的提示 -->
 			<el-empty
-				v-if="hasSearched && searchResults.length === 0"
+				v-if="hasSearched && !isSearching && searchResults.length === 0"
 				description="没有找到相关视频"
 			></el-empty>
 
@@ -152,7 +158,7 @@
 <script setup>
 import { ref, onMounted, onUnmounted } from 'vue'
 import { useRouter } from 'vue-router'
-import { Search, VideoPlay, Timer } from '@element-plus/icons-vue'
+import { Search, VideoPlay, Timer, Loading } from '@element-plus/icons-vue'
 import { ElMessage } from 'element-plus'
 import { useStore } from '../store/index'
 import axios from 'axios'
@@ -635,5 +641,33 @@ onUnmounted(() => {
 
 :deep(.el-empty__description) {
 	color: white;
+}
+
+.loading-container {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	margin: 40px 0;
+	color: white;
+}
+
+.loading-container p {
+	margin-top: 20px;
+	font-size: 16px;
+}
+
+.loading-icon {
+	animation: rotating 2s linear infinite;
+	color: #409eff;
+}
+
+@keyframes rotating {
+	0% {
+		transform: rotate(0deg);
+	}
+	100% {
+		transform: rotate(360deg);
+	}
 }
 </style>
