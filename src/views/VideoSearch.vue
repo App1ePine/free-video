@@ -262,8 +262,13 @@ const handleSearch = async () => {
 				ElMessage.success(`找到 ${searchResults.value.length} 个相关视频`)
 			}
 		} catch (error) {
-			console.error('搜索失败:', error)
-			ElMessage.error('搜索失败，请稍后重试')
+			if(error.response && error.response.status === 404) {
+				console.log('搜索结果未找到')
+				ElMessage.warning('未找到相关视频')
+			} else {
+				console.error('搜索失败:', error)
+				ElMessage.error('搜索失败，请稍后重试')
+			}
 			searchResults.value = []
 		} finally {
 			isSearching.value = false
